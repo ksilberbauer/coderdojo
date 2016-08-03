@@ -14,17 +14,19 @@
         $(document).ready(function() {
             var apiKey = 'dc6zaTOxFJmzC'
 
-            $.get('http://api.giphy.com/v1/gifs/random?api_key=' + apiKey)
-                .done(function(response) {
-                    $('#gif').prop('src', response.data.image_url)
-                })
-                .fail(function() {
-                    alert('An error occurred!')
-                })
+            function loadGif(query) {
+                $.get('http://api.giphy.com/v1/gifs/random?api_key=' + apiKey + '&tag=' + query)
+                    .done(function(response) {
+                        $('#gif').prop('src', response.data.image_url)
+                    })
+                    .fail(function() {
+                        alert('An error occurred!')
+                    })
+            }
 
             $('#query').keypress(function(e) {
                 if(e.which == 13) {
-                    console.log(this.value)
+                    loadGif(this.value)
                 }
             })
         })
