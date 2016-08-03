@@ -5,6 +5,8 @@
 </head>
 <body>
 
+    <img id="gif" />
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
@@ -12,7 +14,7 @@
 
             $.get('http://api.giphy.com/v1/gifs/random?api_key=' + apiKey)
                 .done(function(response) {
-                    console.log(response)
+                    $('#gif').prop('src', response.data.image_url)
                 })
                 .fail(function() {
                     alert('An error occurred!')
