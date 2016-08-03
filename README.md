@@ -1,2 +1,2 @@
 # coderdojo
-CoderDojo lessons, tutorials, and code samples
+Charles River CoderDojo lessons, tutorials, and code samples
