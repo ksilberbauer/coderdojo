@@ -15,7 +15,7 @@
             var apiKey = 'dc6zaTOxFJmzC'
 
             function loadGif(query) {
-                $.get('http://api.giphy.com/v1/gifs/random?api_key=' + apiKey + '&tag=' + query)
+                $.get('http://api.giphy.com/v1/gifs/random?rating=g&api_key=' + apiKey + '&tag=' + query)
                     .done(function(response) {
                         $('#gif').prop('src', response.data.image_url)
                     })
