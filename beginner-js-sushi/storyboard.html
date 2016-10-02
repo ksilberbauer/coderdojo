@@ -8,14 +8,14 @@
 	
     <body>
         <div class="panel">
-            <img src="images/ling-ling.png" height="100" width="100" onclick="alert('Hello!')"/>
-            <p id="name">Ling Ling the Panda</p>
-            <p id="description">He is an awesome panda.</p>
+            <img id="image" src="images/ling-ling.png" height="100" width="100" onclick="alert('Hello!')"/>
+            <p class="text" id="name">Ling Ling the Panda</p>
+            <p class="text" id="description">He is an awesome panda.</p>
             <p></p>
         </div>
         <button id="toggle_button">Toggle Style</button>
         <button id="image_button">Resize Image</button>
-        <button>Reset</button>
+        <button id="reset_button">Reset</button>
         <br>
         Name: <input id="name_box" type="text" value=""/>
         <br>
@@ -46,6 +46,17 @@
                 $('#image_button').click(function () {
                     $('img').animate({ height: 300, width: 300, opacity: 0.4 }, 'slow');
                     $('img').attr('src', 'images/tito.png');
+                });
+
+                $('#reset_button').click(function () {
+                    $('#name').html("Ling Ling the Panda");
+                    $('#description').html("This is the description");
+                    $('#description').css('opacity', '1');
+                    $('.text').css({ 'font-size': '16px', 'color': 'black' });
+                    $('#image').animate({ height: 100, width: 100 }, 'fast');
+                    $('#image').css('opacity', '1');
+                    $('#image').attr('src', 'images/ling-ling.png');
+                    $('.panel').removeClass('layout-grass');
                 });
             });
         </script>
