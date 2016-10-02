@@ -13,8 +13,8 @@
             <p id="description">He is an awesome panda.</p>
             <p></p>
         </div>
-        <button>Toggle Style</button>
-        <button>Resize Image</button>
+        <button id="toggle_button">Toggle Style</button>
+        <button id="image_button">Resize Image</button>
         <button>Reset</button>
         <br>
         Name: <input id="name_box" type="text" value=""/>
@@ -38,6 +38,14 @@
                     $('#description').css('opacity', '0');
                     $('#description').css('transition', 'opacity 2s ease-in-out');
                 });
+
+                $('#toggle_button').click(function () {
+                    $('.panel').toggleClass('layout-grass');
+                });
+
+                $('#image_button').click(function () {
+                    $('img').animate({ height: 300, width: 300 }, 'slow');
+                })
             });
         </script>
     </body>
