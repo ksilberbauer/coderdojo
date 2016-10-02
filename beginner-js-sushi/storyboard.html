@@ -9,8 +9,8 @@
     <body>
         <div class="panel">
             <img src="images/ling-ling.png" height="100" width="100" onclick="alert('Hello!')"/>
-            <p>Ling Ling the Panda</p>
-            <p>He is an awesome panda.</p>
+            <p id="name">Ling Ling the Panda</p>
+            <p id="description">He is an awesome panda.</p>
             <p></p>
         </div>
         <button>Toggle Style</button>
@@ -24,7 +24,10 @@
 
         <script>
             $(document).ready(function () {
-                alert("script code goes here!")
+                $('#name_submit').click(function () {
+                    $('#name').html($('#name_box').val());
+                    $('#description').html($('#description_box').val());
+                })
             });
         </script>
     </body>
