@@ -44,8 +44,9 @@
                 });
 
                 $('#image_button').click(function () {
-                    $('img').animate({ height: 300, width: 300 }, 'slow');
-                })
+                    $('img').animate({ height: 300, width: 300, opacity: 0.4 }, 'slow');
+                    $('img').attr('src', 'images/tito.png');
+                });
             });
         </script>
     </body>
