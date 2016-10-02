@@ -27,7 +27,17 @@
                 $('#name_submit').click(function () {
                     $('#name').html($('#name_box').val());
                     $('#description').html($('#description_box').val());
-                })
+                });
+
+                $('#name').click(function () {
+                    $('#name').css('font-size', '50px');
+                });
+
+                $('#description').click(function () {
+                    $('#description').css('color', 'orange');
+                    $('#description').css('opacity', '0');
+                    $('#description').css('transition', 'opacity 2s ease-in-out');
+                });
             });
         </script>
     </body>
