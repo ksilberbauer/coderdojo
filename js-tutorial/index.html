@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+    <h1>My first card game</h1>
+    <input type="text" id="myGuess" placeholder="Guess a number between 1 and 10">
+    <button id="button1">Guess</button>
+
+    <script>
+        var number = Math.ceil(Math.random() * 10);
+
+        function testGuess(guess) {
+            if (guess === "") {
+                alert('You must enter a number between 1 and 10');
+            } else if (guess > number) {
+               alert('Lower'); 
+            } else if (guess < number) {
+                alert('Higher');
+            } else {
+                alert('You got it!');
+            }
+        }
+
+        var button1 = document.getElementById('button1');
+        button1.onclick = function() {
+            var myGuess = document.getElementById('myGuess');
+            var guess = myGuess.value;
+            console.log(guess)
+            testGuess(guess);
+        }
+    </script>
+</body>
+</html>

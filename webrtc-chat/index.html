@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebRTC Chat</title>
+</head>
+<body>
+    <label>Your peer ID:</label><input id="yourId" />
+    <label>Their peer ID:</label><input id="theirId" /><button onclick="connect()">Connect</button>
+    <br />
+    <input id="message" /><button onclick="send()">Send</button>
+    <ul id="chat"></ul>
+
+    <script src="http://cdn.peerjs.com/0.3/peer.js"></script>
+    <script type="text/javascript">
+        var peer = new Peer({key: 'ff9l8zs36fo2mx6r'});
+        var isSetupComplete = false;
+
+        function send() {
+          alert('Setup connection first');
+        }
+
+        peer.on('open', function(id) {
+          document.getElementById('yourId').value = id;
+        });
+
+        function connect() {
+          var theirId = document.getElementById('theirId').value;
+          conn = peer.connect(theirId);
+          setup(conn);
+        }
+
+        peer.on('connection', function(conn) { setup(conn); });
+
+        function setup(conn) {
+          if (isSetupComplete) return;
+          conn.on('open', function() {
+            // Receive messages
+            conn.on('data', function(message) {
+              writeMessage("Them: " + message)
+            });
+
+            // Send messages
+            send = function () {
+              var message = document.getElementById('message').value;
+              conn.send(message);
+              writeMessage("Me: " + message);
+            }
+          });
+          isSetupComplete = true;
+        }
+
+        function writeMessage(message) {
+          var li = document.createElement('li');
+          li.innerHTML = message;
+          document.getElementById('chat').appendChild(li);            
+        }
+    </script>
+</body>
+</html>
